@@ -1,0 +1,66 @@
+body {
+  background: #f7f9fc;
+}
+
+.app-shell {
+  max-width: 900px;
+  margin: 36px auto;
+}
+
+.panel {
+  background: #fff;
+  border-radius: 8px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(20,20,30,0.04);
+}
+
+.muted {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.summary-box {
+  background: #fbfdff;
+  border-radius: 8px;
+  min-height: 120px;
+  padding: 1rem;
+}
+
+.chat-box {
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: #fcfcfd;
+  border-radius: 8px;
+  overflow: auto;
+}
+
+.chat-bubble {
+  margin: 8px 0;
+  padding: 10px 14px;
+  border-radius: 12px;
+  display: inline-block;
+  max-width: 86%;
+}
+
+.chat-bubble.user {
+  background: #e7f1ff;
+  align-self: flex-end;
+}
+
+.chat-bubble.bot {
+  background: #f1f3f5;
+}
+
+.quiz-box {
+  min-height: 240px;
+  padding: 12px;
+  background: #fcfcfd;
+  border-radius: 8px;
+}
+
+.options-list button {
+  margin: 6px 6px 0 0;
+}

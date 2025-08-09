@@ -1,0 +1,14 @@
+Project Structure
+Requirements.txt
+.env.example
+app config.py
+app/openai_client.py
+app session.py
+app models.py
+app/schemas.py
+app/crud.py
+app/auth/auth.py
+app/routers/summarize.py
+app/routers/quiz.py
+app/routers/notes.py
+app/main.py

@@ -2,7 +2,7 @@
 
 A sleek, modern web application that transforms your study materials into interactive learning experiences using AI. Upload documents, get instant summaries, ask questions, and test your knowledge with auto-generated quizzes.
 
-![AI Study Companion Demo](<img width="1895" height="871" alt="image" src="https://github.com/user-attachments/assets/eb2ab438-04cb-4a6e-84bf-1889f0a02086"/>)
+![AI Study Companion Demo](assets/Screenshot-01.png)
 
 ## ✨ Features
 

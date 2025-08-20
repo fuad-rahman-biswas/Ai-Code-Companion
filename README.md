@@ -1,255 +1,136 @@
-# 🚀 AI Study Companion
+# AI Study Companion
 
-A sleek, modern web application that transforms your study materials into interactive learning experiences using AI. Upload documents, get instant summaries, ask questions, and test your knowledge with auto-generated quizzes.
+> **Smart study assistant powered by AI** ✨  
+> Upload documents, get summaries, ask questions, and take quizzes.
 
-![AI Study Companion Demo](Assets/Screenshot-01.png)
+![AI Study Companion](Assets/Screenshot-01.png)
 
-## ✨ Features
+## 🚀 Features
 
-### 📄 **Smart Document Processing**
-- Drag & drop file upload with visual feedback
-- Support for .txt files (frontend) and .pdf files (backend required)
-- Real-time document preview
-- Instant AI-powered summarization
-
-### 💬 **Interactive Q&A Chat**
-- WhatsApp/iMessage style chat interface with typing animations
-- Context-aware responses based on uploaded documents
-- Chat history with recent Q&A sidebar
-- Real-time message rendering with smooth animations
-
-### 🧠 **Intelligent Quiz Generation**
-- Auto-generated multiple-choice questions from your content
-- Interactive quiz interface with instant feedback
-- Real-time scoring and performance tracking
-- Visual feedback for correct/incorrect answers
-
-### 🎨 **Modern UI/UX**
-- Dark theme with glassmorphism effects
-- Smooth animations and micro-interactions
-- Responsive design for all screen sizes
-- Accessible keyboard navigation
-- Professional gradient designs and hover effects
+- **📄 Document Upload**: Support for TXT, PDF, and DOCX files
+- **🤖 AI Summaries**: Get smart summaries using Groq's LLaMA models
+- **💬 Q&A Chat**: Ask questions about your uploaded content
+- **🧠 Quiz Generator**: Auto-generate quizzes from your documents
+- **🎨 Modern UI**: Beautiful design with dark/light themes
 
 ## 🛠️ Tech Stack
 
-**Frontend:**
-- Pure HTML5, CSS3, and Vanilla JavaScript
-- Modern CSS features (Grid, Flexbox, Custom Properties)
-- Glassmorphism and modern design principles
-- No external dependencies for maximum performance
+**Frontend**: Vanilla JavaScript, Modern CSS, HTML5  
+**Backend**: Node.js, Express.js, Groq SDK, Multer, PDF-Parse, Mammoth
 
-**Backend Integration:**
-- RESTful API endpoints for document processing
-- File upload handling with multipart form data
-- Context-aware AI responses
-- Quiz generation based on document content
+## 📋 Prerequisites
+
+- Node.js (v14+)
+- npm (v6+)
+- Groq API Key ([Get one here](https://console.groq.com/))
 
 ## 🚀 Quick Start
 
-### Frontend Only (Demo Mode)
-1. Clone the repository:
+### 1. Clone & Setup
 ```bash
 git clone https://github.com/yourusername/ai-study-companion.git
-cd ai-study-companion
+cd ai-study-companion/Backend
+npm install
 ```
 
-2. Open `index.html` in your browser:
+### 2. Environment Setup
+Create `.env` file in Backend folder:
+```env
+GROQ_API_KEY=your_groq_api_key_here
+PORT=5000
+```
+
+### 3. Start Backend
 ```bash
-# Using Python's built-in server
-python -m http.server 8000
-
-# Using Node.js http-server
-npx http-server
-
-# Or simply open index.html in your browser
+npm start
+# Server runs on http://localhost:5000
 ```
 
-3. The app will run in demo mode with simulated responses.
-
-### Full Backend Integration
-For complete functionality including PDF processing and real AI responses, you'll need to set up the backend:
-
-1. **Backend Setup** (Python Flask example):
-```python
-# app.py
-from flask import Flask, request, jsonify
-from flask_cors import CORS
-import os
-
-app = Flask(__name__)
-CORS(app)
-
-@app.route('/api/upload', methods=['POST'])
-def upload_file():
-    # Handle file upload and return summary
-    file = request.files['file']
-    # Process file and generate summary using your AI service
-    return jsonify({
-        'contextId': 'unique-id',
-        'text': 'extracted text',
-        'summary': 'AI generated summary'
-    })
-
-@app.route('/api/ask', methods=['POST'])
-def ask_question():
-    data = request.json
-    # Process question with context and return AI response
-    return jsonify({'answer': 'AI generated answer'})
-
-@app.route('/api/quiz', methods=['POST'])
-def generate_quiz():
-    # Generate quiz questions from context
-    return jsonify({'quiz': [
-        {
-            'q': 'Sample question?',
-            'options': ['A', 'B', 'C', 'D'],
-            'answer': 0
-        }
-    ]})
-
-if __name__ == '__main__':
-    app.run(debug=True)
-```
-
-2. **Install dependencies:**
+### 4. Open Frontend
+Open `Frontend/index.html` in your browser or use:
 ```bash
-pip install flask flask-cors
-# Add your AI service dependencies (OpenAI, Anthropic, etc.)
+cd Frontend
+python -m http.server 3000
+# Visit http://localhost:3000
 ```
 
-3. **Run the backend:**
-```bash
-python app.py
-```
+## 📖 How It Works
 
-4. **Update API endpoint** in the frontend if needed (currently set to `http://localhost:5000`)
+### 1. Upload Documents
+![Document Upload](Assets/Screenshot-02.png)
+
+Drag and drop or click to upload TXT, PDF, or DOCX files. The system extracts text automatically.
+
+### 2. AI Summarization
+![AI Summary](Assets/Screenshot-03.png)
+
+Click "Summarize" to get an AI-powered summary of your document using Groq's LLaMA models.
+
+### 3. Ask Questions
+![AI Summary](Assets/Screenshot-04.png)
+![AI Summary](Assets/Screenshot-05.png)
+
+Navigate to the "Ask" tab and chat with AI about your uploaded content. Get contextual answers instantly.
+
+### 4. Take Quizzes
+![AI Summary](Assets/Screenshot-06.png)
+![AI Summary](Assets/Screenshot-07.png)
+
+Generate multiple-choice quizzes from your content. Answer questions and get instant feedback with scoring.
+
+## 🔧 API Endpoints
+
+```javascript
+POST /api/upload    // Upload & summarize documents
+POST /api/ask       // Ask questions about content  
+POST /api/quiz      // Generate quiz from content
+```
 
 ## 📁 Project Structure
 
 ```
 ai-study-companion/
-├── index.html              # Main application file
-├── README.md               # Project documentation
-├── LICENSE                 # License file
-├── backend/                # Backend implementation (optional)
-│   ├── app.py             # Flask server example
-│   ├── requirements.txt   # Python dependencies
-│   └── utils/             # Helper functions
-├── assets/                # Static assets
-│   ├── images/           # Screenshots and demos
-│   └── docs/             # Additional documentation
-└── examples/              # Example documents for testing
+├── Frontend/
+│   └── index.html          # Main app file
+├── Backend/
+│   ├── .env               # Environment variables
+│   ├── package.json       # Dependencies
+│   └── server.js          # Express server
+└── assets/images/         # Screenshots
 ```
 
-## 🎯 API Endpoints
+## 🎯 Required Images
 
-### `POST /api/upload`
-Upload and process documents
-- **Body:** FormData with file
-- **Response:** `{contextId, text, summary}`
-
-### `POST /api/ask`
-Ask questions about uploaded content
-- **Body:** `{question, contextId?}`
-- **Response:** `{answer}`
-
-### `POST /api/quiz`
-Generate quiz from content
-- **Body:** `{contextId?}`
-- **Response:** `{quiz: [{q, options, answer}]}`
-
-## 🎨 Customization
-
-### Themes
-The app supports light/dark themes. Modify CSS custom properties in `:root` to customize colors:
-
-```css
-:root {
-  --primary: #6366f1;        /* Primary brand color */
-  --secondary: #06b6d4;      /* Secondary accent */
-  --bg-primary: #0f0f23;     /* Main background */
-  --text-primary: #ffffff;    /* Primary text */
-  /* ... more variables */
-}
-```
-
-### Styling
-The entire design system uses CSS custom properties, making it easy to rebrand or modify the appearance without touching core styles.
-
-## 🔧 Configuration
-
-### Environment Variables
-```bash
-# Backend configuration
-API_BASE_URL=http://localhost:5000
-OPENAI_API_KEY=your-openai-key
-MAX_FILE_SIZE=10485760  # 10MB
-```
-
-### Frontend Configuration
-Update the API endpoint in the JavaScript:
-```javascript
-const API_BASE_URL = 'http://localhost:5000'; // Change this to your backend URL
-```
+Add these 5 images to `assets/images/`:
+- `ui-overview.png` - Main interface
+- `summarization.png` - AI summary feature
+- `txt-file.png` - Document upload
+- `ask.png` - Q&A chat
+- `quiz.png` - Quiz interface
 
 ## 🤝 Contributing
 
-We welcome contributions! Here's how you can help:
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/new-feature`)
+3. Commit changes (`git commit -m 'Add new feature'`)
+4. Push to branch (`git push origin feature/new-feature`)
+5. Open Pull Request
 
-1. **Fork** the repository
-2. **Create** a feature branch (`git checkout -b feature/AmazingFeature`)
-3. **Commit** your changes (`git commit -m 'Add some AmazingFeature'`)
-4. **Push** to the branch (`git push origin feature/AmazingFeature`)
-5. **Open** a Pull Request
+## 📄 License
 
-### Development Guidelines
-- Follow existing code style and naming conventions
-- Add comments for complex functionality
-- Test your changes across different browsers
-- Update documentation for new features
+MIT License - see [LICENSE](LICENSE) file for details.
 
-## 📝 License
+## 👨‍💻 Author
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- Design inspired by modern productivity applications
-- Icons and emojis for enhanced user experience
-- Built with accessibility and performance in mind
-
-## 📸 Screenshots
-
-### Document Upload & Summary
-![Upload Interface](https://via.placeholder.com/600x400/1a1a2e/ffffff?text=Upload+%26+Summary+View)
-
-### Interactive Chat
-![Chat Interface](https://via.placeholder.com/600x400/1a1a2e/ffffff?text=AI+Chat+Interface)
-
-### Quiz Generation
-![Quiz Interface](https://via.placeholder.com/600x400/1a1a2e/ffffff?text=Interactive+Quiz+Mode)
-
-## 🚦 Roadmap
-
-- [ ] **Mobile app** using React Native
-- [ ] **Collaboration features** for team study
-- [ ] **More file formats** (DOCX, PPT, etc.)
-- [ ] **Export functionality** (PDF reports, flashcards)
-- [ ] **Study analytics** and progress tracking
-- [ ] **Integration** with popular learning platforms
-
-## 📞 Support
-
-Having issues? Here's how to get help:
-
-1. **Check** existing [Issues](https://github.com/yourusername/ai-study-companion/issues)
-2. **Create** a new issue with detailed description
-3. **Join** our [Discord community](https://discord.gg/yourinvite)
-4. **Email** us at support@yourdomain.com
+**Fuad Rahman Biswas**
+- GitHub: [@fuadrahmanbiswas](https://github.com/furadrahmanbiswas)
 
 ---
 
-⭐ **Star this repo** if you find it helpful! 
+<div align="center">
 
-**Built with ❤️ for students and lifelong learners everywhere.**
+**⭐ Star this repo if you find it helpful!**
+
+**Made with ❤️ and lots of ☕**
+
+</div>

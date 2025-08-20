@@ -123,7 +123,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 ## 👨‍💻 Author
 
 **Fuad Rahman Biswas**
-- GitHub: [@fuadrahmanbiswas](https://github.com/furadrahmanbiswas)
+- GitHub: [@fuadrahmanbiswas](https://github.com/furad-rahman-biswas)
 
 ---
 
